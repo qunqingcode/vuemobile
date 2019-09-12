@@ -46,6 +46,7 @@ export default {
 .appContainer{
 	padding-top: 40px;
 	overflow-x: hidden;
+	padding-bottom: 50px;
 }
 
 .v-enter-active{

@@ -11,9 +11,10 @@
 </mt-swipe>
   <!-- 九宫格-六宫格改造 -->
   <ul class="mui-table-view mui-grid-view mui-grid-9">
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+                
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/HOME/newslist">
 		                    <img src="@/assets/1.jpg" alt="">
-		                    <div class="mui-media-body">新闻资讯</div></a></li>
+		                    <div class="mui-media-body">新闻资讯</div></router-link></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <img src="@/assets/i2.jpeg" alt="">
 		                    <div class="mui-media-body">图片分享</div></a></li>
@@ -30,8 +31,7 @@
 		                    <img src="@/assets/i6.jpg" alt="">
 		                    <div class="mui-media-body">联系我们</div></a></li>
 		           
-		        </ul>
-              <img src="/src/assets/i6.jpg" alt="">
+		        </ul> 
     </div>
 </template>
 

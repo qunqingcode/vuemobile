@@ -8,8 +8,8 @@ import mintUI from 'mint-ui'
 import '../node_modules/mint-ui/lib/style.css'
 import { Swipe, SwipeItem } from 'mint-ui';
 
-// 导入axios
-import axios from 'axios'
+// 导入axios 去组件中导入- -axios全局安装懒得做了
+
 /*
 雷点：axios Axios 是一个基于 promise 的 HTTP 库
 axios并没有install 方法，所以是不能使用vue.use()方法的。 
@@ -30,9 +30,12 @@ Vue.use(mintUI)
 import './lib/mui-master/dist/css/mui.min.css'
 import './lib/mui-master/examples/hello-mui/css/icons-extra.css'
 import './lib/mui-master/examples/hello-mui/fonts/mui-icons-extra.ttf'
-
+import moment from 'moment'
 Vue.config.productionTip = false
-
+//定义全局过滤器
+Vue.filter('dateFormat',function(datestr,pattern="YYYY-MM-DD HH:MM:SS"){
+  return  moment(datestr).format(pattern)
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
