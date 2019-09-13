@@ -10,13 +10,13 @@
                     第{{index+1}}楼 &nbsp;&nbsp; 用户:{{item.user_name}} &nbsp;&nbsp;发表时间{{item.add_time|dateFormat}}
                 </div>
                 <div class="cmt-body">
-                    {{item.content}}
+                    {{item.content==='undefined'?'该用户没有输入内容':item.content}}
                 </div>
                 
                 
             </div>
         </div>
-        <span>当前是第{{pageIndex}}页</span>
+       
         <mt-button  type="danger" size="large" plain @click="addmore">加载更多</mt-button>
     </div>
 </template>
@@ -32,19 +32,21 @@ export default {
         }
     },
     methods: {
-        getcomments(){
+        getcomments(){//获取评论
             axios.get('http://www.liulongbin.top:3005/api/getcomments/'+this.id,{params:{pageindex:this.pageIndex}}
         ).then(data=>{
             
           if(data.data.status===0){
-             
-            this.comments=  this.comments=data.data.message;
+             console.log(data)
+             //每当获取新评论的时候不要把老数据清空覆盖，而是应该以老数据拼接上新数据
+             //数据拼接方法不会改变原数组，而是返回一个拼接好的新数组，所以在这我们重新赋值一下它，让我们的数据是有新也有旧的样子
+           this.comments= this.comments.concat(this.comments=data.data.message) 
           }else{
               Toast('获取失败')
           }
             })
         },
-        addmore(){
+        addmore(){//获取最新评论数据
             this.pageIndex+=1;
              this.getcomments()
         }
