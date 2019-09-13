@@ -7,13 +7,18 @@
         <span>点击:{{newsinfo.click}}</span>
     </p>
     <hr>
+    <!-- 内容区 -->
     <div class="content" v-html="newsinfo.content">
         
     </div>
+    <!-- 评论子组件区域 -->
+    <comment-box :id="this.id"></comment-box>
      </div>
 </template>
 
 <script>
+//导入评论组件
+import comment from '../subcomponents/comment.vue'
 import axios from 'axios'
 export default {
     data() {
@@ -33,6 +38,9 @@ export default {
           }
       )
     },
+    components:{
+        'comment-box':comment
+    }
    
 }
 </script>
