@@ -6,6 +6,8 @@ import ShopcarContainer from  '../components/tabbar/ShopcarContainer.vue'
 import SearchContainer from '../components/tabbar/SearchContainer.vue'
 import NewList from '../components/news/newslist.vue'
 import NewsInfo from '../components/news/newsinfo.vue'
+import PhotoList from '../components/photos/PhotoList.vue'
+import Photoinfo from '../components/photos/Photoinfo.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -40,6 +42,16 @@ export default new Router({
     path: '/HOME/newslist/newsinfo',
     name:'newsinfo',
     component:NewsInfo
+    },
+    {
+      path:'/HOME/photolist',
+      name:'photolist',
+      component:PhotoList
+    },
+    {
+      path:'/HOME/photoinfo',
+      name:'photoinfo',
+      component:Photoinfo
     }
   ],
   linkActiveClass:'mui-active'//覆盖默认的路由高亮的类 linkActiveClass去设置路由激活时的样式类！！！还有个在CSS中设置router-link-active可以设置但是它的权重不好控制所以我们采用这种方法来调用库中的激活样式

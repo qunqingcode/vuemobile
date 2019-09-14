@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 export default {
     data() {
         return {
@@ -27,7 +27,7 @@ export default {
         }
     },
     created(){
-        axios.get("http://www.liulongbin.top:3005/api/getnewslist").then(data=>{
+        this.axios.get("http://www.liulongbin.top:3005/api/getnewslist").then(data=>{
             console.log(data)
             this.newslist=data.data.message;
         })

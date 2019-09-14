@@ -12,22 +12,22 @@
   <!-- 九宫格-六宫格改造 -->
   <ul class="mui-table-view mui-grid-view mui-grid-9">
                 
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/HOME/newslist">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><router-link to="/HOME/newslist">
 		                    <img src="@/assets/1.jpg" alt="">
 		                    <div class="mui-media-body">新闻资讯</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><router-link to="/HOME/photolist">
 		                    <img src="@/assets/i2.jpeg" alt="">
-		                    <div class="mui-media-body">图片分享</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <div class="mui-media-body">图片分享</div></router-link></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><a href="#">
                         <img src="@/assets/i3.jpeg" alt="">
 		                    <div class="mui-media-body">商品购买</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><a href="#">
 		                   <img src="@/assets/i4.jpeg" alt="">
 		                    <div class="mui-media-body">留言反馈</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><a href="#">
 		                   <img src="@/assets/i5.jpeg" alt="">
 		                    <div class="mui-media-body">视频专区</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><a href="#">
 		                    <img src="@/assets/i6.jpg" alt="">
 		                    <div class="mui-media-body">联系我们</div></a></li>
 		           
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 import { Toast } from 'mint-ui'
 export default {
       data() {
@@ -45,7 +45,7 @@ export default {
         }
       },
     created(){
-        axios.get('http://www.liulongbin.top:3005/api/getlunbo'
+        this.axios.get('http://www.liulongbin.top:3005/api/getlunbo'
      ).then((data)=>
     {
      

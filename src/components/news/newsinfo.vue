@@ -19,7 +19,6 @@
 <script>
 //导入评论组件
 import comment from '../subcomponents/comment.vue'
-import axios from 'axios'
 export default {
     data() {
         return {
@@ -29,9 +28,9 @@ export default {
     },
     
         created(){//获取新闻数据详情
-              axios.get('http://www.liulongbin.top:3005/api/getnew/'+this.$route.query.id).then(
+              this.axios.get('http://www.liulongbin.top:3005/api/getnew/'+this.$route.query.id).then(
           data=>{
-              console.log(data)
+             
               if(data.data.status===0){
                   this.newsinfo=data.data.message[0]
               }else{}

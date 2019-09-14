@@ -19,6 +19,7 @@ axios并没有install 方法，所以是不能使用vue.use()方法的。
  Vue.prototype.$ajax= axios 
         再组件中用this.$ajax就相当于axios这个对象了然后对比着axios官网用就行
 3.结合 Vuex的action
+4.引用vue-axios配合使用可以达到this.axios访问到axios对象
 */
 
 Vue.component(Swipe.name, Swipe);
@@ -26,7 +27,6 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 //全局引用mintUI组件
 Vue.use(mintUI)
-
 import './lib/mui-master/dist/css/mui.min.css'
 import './lib/mui-master/examples/hello-mui/css/icons-extra.css'
 import './lib/mui-master/examples/hello-mui/fonts/mui-icons-extra.ttf'
@@ -36,7 +36,14 @@ Vue.config.productionTip = false
 Vue.filter('dateFormat',function(datestr,pattern="YYYY-MM-DD HH:MM:SS"){
   return  moment(datestr).format(pattern)
 })
+//全局引用vue-axios和axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios,axios)//这样全局引用后在组件中就可以用this.axios访问axios库的axios对象啦！
 /* eslint-disable no-new */
+//导入vue-preview插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 new Vue({
   el: '#app',
   router,
