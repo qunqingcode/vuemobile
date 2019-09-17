@@ -97,8 +97,10 @@ export default {
     figure {
       width: 30%;
       margin: 5px;
+      box-shadow: 0 0 10px #999;
       img {
         width: 100%;
+        height:100%;
       }
     }
   }

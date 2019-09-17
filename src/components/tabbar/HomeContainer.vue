@@ -1,14 +1,6 @@
 <template>
     <div>
-  <mt-swipe :auto="4000">
-    <!-- v-for 复习 v-for="item in data"做到数据遍历渲染 -->
-    <!-- 在组件中使用v-for循环的话一定要使用key -->
-  <mt-swipe-item v-for="(item,index) in lunbolist" :key="index"
-  >
-  <img :src="item.img" >
-  </mt-swipe-item>
-  
-</mt-swipe>
+      <swiper :lunbotuList="lunbolist" :isfull="true"></swiper>
   <!-- 九宫格-六宫格改造 -->
   <ul class="mui-table-view mui-grid-view mui-grid-9">
                 
@@ -18,9 +10,9 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><router-link to="/HOME/photolist">
 		                    <img src="@/assets/i2.jpeg" alt="">
 		                    <div class="mui-media-body">图片分享</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><router-link to="/HOME/goodslist">
                         <img src="@/assets/i3.jpeg" alt="">
-		                    <div class="mui-media-body">商品购买</div></a></li>
+		                    <div class="mui-media-body">商品购买</div></router-link></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 "><a href="#">
 		                   <img src="@/assets/i4.jpeg" alt="">
 		                    <div class="mui-media-body">留言反馈</div></a></li>
@@ -38,6 +30,7 @@
 <script>
 
 import { Toast } from 'mint-ui'
+import swiper from "../subcomponents/swiper.vue"
 export default {
       data() {
         return {
@@ -55,23 +48,15 @@ export default {
           Toast('加载轮播图失败')
         }
     })
-    }
+    },
+    components:{'swiper':swiper}
 }
 
 </script>
 
 <style scoped>
 
-.mint-swipe{
-    height: 30vh;
-    
-}
-.mint-swipe-item img{
-    
-      width: 100%;
-      height: 100%;
-       
-    }
+
  .mui-grid-view.mui-grid-9{
    background-color: white;
    border:none;

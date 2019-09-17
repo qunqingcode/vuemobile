@@ -1,7 +1,11 @@
 <template>
 <div class="appContainer" >
   <!-- 顶部header区域 -->
-    <mt-header fixed title="群青Vue项目"  ></mt-header>
+  
+    <mt-header fixed title="群青Vue项目"   >
+		<!-- mt-header里的元素设置slot可以设置这个元素显示在左边还是右边(left、right) -->
+		 <mt-button v-show="flag" icon="back" slot="left" @click="routerback">返回</mt-button>
+	</mt-header>
     <!-- 中间的路由router-view区域 -->
 	<transition >
     <router-view class="test"></router-view>
@@ -22,7 +26,7 @@
 			
 			
 			<router-link to="/Shopcar" class="mui-tab-item-1" >
-				<span class=" mui-icon mui-icon-extra mui-icon-extra-cart"></span>
+				<span class=" mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{$store.getters.getAllCount}}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 				
@@ -38,11 +42,36 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+	  return {
+		  flag:false
+	  }
+  },
+  created() {
+	this.flag= this.$route.path=='/Home'?false:true
+  },
+  methods: {
+	  routerback(){
+		  this.$router.back()
+	  }
+  },
+  watch:{
+	  '$route.path':function(newval){
+		  if(newval=='/Home'){
+			  this.flag=false;
+		  }else{
+			  this.flag=true;
+		  }
+	  }
+  }
 }
 </script>
 
 <style scoped>
+.mint-header span{
+	z-index: 99;
+}
 .mint-header{
 	z-index: 99;
 }

@@ -4,7 +4,7 @@
       <div id="slider" class="mui-slider ">
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" data-scroll="1">
 					<div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms; transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);">
-						<a @click="getPhotoListByCateid(item.id)"	:class="['mui-control-item ',item.id==0?'mui-active':'']" v-for="item in cates" :key="item.id">
+						<a @tap="getPhotoListByCateid(item.id)"	:class="['mui-control-item ',item.id==0?'mui-active':'']" v-for="item in cates" :key="item.id">
 						{{item.title}}
 						</a>
 					</div>
@@ -53,7 +53,7 @@ export default{
 		getPhotoListByCateid(cateId){//根据分类id，获取图片列表
 			this.axios.get("http://www.liulongbin.top:3005/api/getimages/"+cateId).then(
 			data=>{
-				console.log(data)
+				
 					if(data.data.status===0){
 					this.list=data.data.message
 				}	

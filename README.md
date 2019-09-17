@@ -116,3 +116,13 @@ npm i babel-plugin-transform-remove-strict-mode -D
 1.使用vue-preview缩略图插件
 2.获取所有的图片列表，渲染
 3.注意：每个图片数据对象中必须有 w和 h属性
+
+## 绘制商品列表页面
+
+
+## 尝试在手机上去进行项目的预览和测试
+1.要保证自己的手机可以正常运行
+2.要保证手机和开发项目的电脑处于同一个wifi环境中，也就是说手机可以访问到电脑的IP
+3.打开自己的项目中package.json文件，在dev脚本中添加一个--host指令，
+吧当前电脑的WIFI IP地址，设置为 --host的指令值
+ + 查看wifi地址 cmd 中运行 'ipconfig' ,查看无线网的ip地址
